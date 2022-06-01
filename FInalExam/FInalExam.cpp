@@ -25,6 +25,8 @@ void printMatrix(double matrixToPrint[4][3]);
 
 void negateAllElements(double matrixToBeNegated[4][3]);
 
+int lookForElementsInMatrix(double valueToLookFor, double matrixToBeSearched[4][3]);
+
 
 /**
 * Function <code>main</code> main function that will run the code
@@ -36,7 +38,8 @@ int main()
 	cout << "\n 1) Enter data in matrix (range -5.5 to 5.5) ";
 	cout << "\n 2) Negate all elements (i.e. if an element is -5 => 5, or element is 5 => -5) ";
 	cout << "\n 3) Show data in matrix ";
-	cout << "\n 4) Exit ";
+	cout << "\n 4) Count the number of elements with the value of 1.0 ";
+	cout << "\n 5) Exit ";
 
 	do
 	{
@@ -57,19 +60,22 @@ int main()
 
 			printMatrix(matrix);
 			break;
+		case 4:
+			cout << "There are " << lookForElementsInMatrix(1.0, matrix) << " elements in the matrix with the value of " << 1.0;
+			break;
 		default:
 			cout << "\n Please enter a valid choice! \n";
 			break;
 		}
 		
 
-	} while (choice != 4);
+	} while (choice != 5);
 
 }
 
 
 /**
-* Function <code>putDataInMatrix</code> prints out all the data in the matrix
+* Function <code>printMatrix</code> prints out all the data in the matrix
 * @Param matrixToPrint the matrix that will be ptinted out
 * <BR>
 */
@@ -83,9 +89,9 @@ void printMatrix(double matrixToPrint[4][3])
 
 		for (int j = 0; j < 3; j++)
 		{
-			cout << "[ " << matrixToPrint[0][j] << " ]";
+			cout << "[ " << matrixToPrint[i][j] << " ]";
 		}
-		cout << "[ " << matrixToPrint[i][0] << " ]" << "\n";
+		cout << "\n";
 	}
 }
 
@@ -144,3 +150,30 @@ void negateAllElements(double matrixToBeNegated[4][3])
 
 }
 
+
+
+/**
+* Function <code>lookForElementsInMatrix</code> looks for specific elements in the matrix and counts them
+* <BR>
+* @Param valueToLookFor is the value the function is looking for in the matrix
+* @Param matrixToBeSearched is the matrix that the function will search
+*/
+int lookForElementsInMatrix(double valueToLookFor, double matrixToBeSearched[4][3]) 
+{
+	int count = 0;
+
+	for (int i = 0; i < 4; i++)
+	{
+
+		for (int j = 0; j < 3; j++)
+		{
+			if (matrixToBeSearched[i][j] == valueToLookFor)
+			{
+				count = count + 1;
+			}
+
+		}
+	}
+
+	return count;
+}
