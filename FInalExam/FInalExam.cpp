@@ -21,7 +21,9 @@ double UserInputData;
 
 void putDataInMatrix(double UserInputdata);
 
-void printMatrix();
+void printMatrix(double matrixToPrint[4][3]);
+
+void negateAllElements(double matrixToBeNegated[4][3]);
 
 
 /**
@@ -43,15 +45,17 @@ int main()
 		switch (choice)
 		{
 		case 1:
-			cout << "Hello World!\n";
-			
+			putDataInMatrix(UserInputData);
+			cout << "\n Data sucessfully put in the matrix! \n ";
+
 			break;
 		case 2:
-			cout << "Hello World!\n";
+			negateAllElements(matrix);
+			printMatrix(matrix);
 			break;
 		case 3:
-			putDataInMatrix(UserInputData);
-			printMatrix();
+
+			printMatrix(matrix);
 			break;
 		default:
 			cout << "\n Please enter a valid choice! \n";
@@ -66,28 +70,35 @@ int main()
 
 /**
 * Function <code>putDataInMatrix</code> prints out all the data in the matrix
+* @Param matrixToPrint the matrix that will be ptinted out
 * <BR>
 */
-void printMatrix()
+void printMatrix(double matrixToPrint[4][3])
 {
+	//Testing pre-conditions
+	assert(matrixToPrint);
+
 	for (int i = 0; i < 4; i++)
 	{
 
 		for (int j = 0; j < 3; j++)
 		{
-			cout << "[ " << matrix[0][j] << " ]";
+			cout << "[ " << matrixToPrint[0][j] << " ]";
 		}
-		cout << "[ " << matrix[i][0] << " ]" << "\n";
+		cout << "[ " << matrixToPrint[i][0] << " ]" << "\n";
 	}
 }
 
 
 /**
 * Function <code>putDataInMatrix</code> prompts the user to imput the nessecary data in the matrix
+* @Param UserInputdata data that the user will input and will be placed in the matrix
 * <BR>
 */
 void putDataInMatrix(double UserInputdata)
 {
+	//Testing pre-conditions
+	assert(UserInputData == 0);
 	
 	for (int i = 0; i < 4; i++)
 	{
@@ -108,5 +119,28 @@ void putDataInMatrix(double UserInputdata)
 			}
 		}
 	}
+}
+
+
+/**
+* Function <code>negateAllElements</code> reverses all the numbers inside the given matrix
+* <BR>
+* @Param matrixToBeNegated is the matrix that the function will negate
+*/
+void negateAllElements(double matrixToBeNegated[4][3])
+{
+	//Testing pre-conditions
+	assert(matrixToBeNegated);
+
+	for (int i = 0; i < 4; i++)
+	{
+
+		for (int j = 0; j < 3; j++)
+		{
+			
+			matrixToBeNegated[i][j] = matrixToBeNegated[i][j] * -1;
+		}
+	}
+
 }
 
