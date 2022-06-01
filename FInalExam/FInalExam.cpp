@@ -21,11 +21,11 @@ double UserInputData;
 
 void putDataInMatrix(double UserInputdata);
 
-void printMatrix(double matrixToPrint[4][3]);
+void printMatrix(const double matrixToPrint[4][3]);
 
 void negateAllElements(double matrixToBeNegated[4][3]);
 
-int lookForElementsInMatrix(double valueToLookFor, double matrixToBeSearched[4][3]);
+int lookForElementsInMatrix(const double valueToLookFor, double matrixToBeSearched[4][3]);
 
 
 /**
@@ -79,7 +79,7 @@ int main()
 * @Param matrixToPrint the matrix that will be ptinted out
 * <BR>
 */
-void printMatrix(double matrixToPrint[4][3])
+void printMatrix(const double matrixToPrint[4][3])
 {
 	//Testing pre-conditions
 	assert(matrixToPrint);
@@ -158,7 +158,7 @@ void negateAllElements(double matrixToBeNegated[4][3])
 * @Param valueToLookFor is the value the function is looking for in the matrix
 * @Param matrixToBeSearched is the matrix that the function will search
 */
-int lookForElementsInMatrix(double valueToLookFor, double matrixToBeSearched[4][3]) 
+int lookForElementsInMatrix(const double valueToLookFor, double matrixToBeSearched[4][3]) 
 {
 	int count = 0;
 
